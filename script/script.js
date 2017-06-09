@@ -18,7 +18,6 @@ function addContact(){
             last_name : lastName,
             phone_number : phoneNumber,
             e_mail : email};
-    // firebase.database().ref('contacts').removeEventListener("child_added",read_data);
     if(verifyForm()){
         i++;
         firebaseRef.child(i).set(contact);
@@ -42,14 +41,11 @@ function validateE() {
     var email = $("#email");
     if (validateEmail(email.val())) {
         email.parent().removeClass("has-warning");
-        // object.parent().removeClass("form-control-warning");
         email.parent().addClass("has-success");
-        // object.addClass("form-control-success");
         return true;
     }else{
         email.parent().removeClass("has-success");
         email.parent().addClass("has-warning");
-        // object.addClass("form-control-warning");
         return false;
     }
 }
@@ -58,14 +54,11 @@ function validateFL(object) {
         parent = object.parent();
     if (validateName(str)) {
         parent.removeClass("has-warning");
-        // object.removeClass("form-control-warning");
         parent.addClass("has-success");
-        // object.addClass("form-control-success");
         return true;
     }else{
         parent.removeClass("has-success");
         parent.addClass("has-warning");
-        // object.addClass("form-control-warning");
         return false;
     }
 }
