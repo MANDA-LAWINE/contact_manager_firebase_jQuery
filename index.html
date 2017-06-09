@@ -1,0 +1,119 @@
+<!--Created by MANDA-->
+<!--Email: abdellatif.abazine@gmail.com-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Manager</title>
+
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <style>
+        #DBshow td {
+                min-width: 100px;
+                min-height:60px;
+                font-size: medium;
+
+        }
+
+    </style>
+</head>
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-4"><h1>Contact Manager</h1></div>
+        <div class="col-sm-3"></div>
+    </div>
+
+    <form class="form-horizontal" id="fm" action="" style="margin-top: 20px;">
+       <div class="form-group row">
+            <div class="col-sm-3"></div>
+            <label for="firstName" class="control-label col-sm-2">First Name : </label>
+            <div class="col-sm-4">
+              <input onchange="validateFL($(this));"placeholder="First name" type="text" id="firstName" class="form-control" maxlength="15">
+            </div>
+           <div class="col-sm-3"></div>
+       </div>
+
+       <div class="form-group row">
+            <div class="col-sm-3"></div>
+            <label for="lastName" class="control-label col-sm-2">Last Name : </label>
+            <div class="col-sm-4">
+              <input type="text" id="lastName" placeholder="Last name" onchange="validateFL($(this));" class="form-control" maxlength="15">
+            </div>
+            <div class="col-sm-3"></div>
+       </div>
+
+       <div class="form-group row">
+           <div class="col-sm-3"></div>
+           <label for="phoneNumber" class="control-label col-sm-2 ">Phone Number : </label>
+           <div class="col-sm-4">
+             <input type="text" id="phoneNumber" placeholder="XXXXXXXXXX digits" onchange="validPhone();" class="form-control" maxlength="10">
+           </div>
+           <div class="col-sm-3"></div>
+       </div>
+
+       <div class="form-group row">
+            <div class="col-sm-3"></div>
+            <label for="email" class="control-label col-sm-2">E-mail : </label>
+            <div class="col-sm-4">
+              <input type="text" id="email" placeholder="example@mail.com" onchange="validateE();" class="form-control"><br>
+            </div>
+            <div class="col-sm-3"></div>
+       </div>
+       <div class="form-group row" style="margin-bottom: 30px">
+            <div class="col-sm-6"></div>
+            <div id="btn-warper" class="col-sm-3">
+                <button type="button" class="btn btn-primary" style="font-size: medium;width: 90px;height: 40px" onclick="addContact()" >Add</button>
+            </div>
+           <div class="col-sm-3"></div>
+       </div>
+    </form>
+
+</div>
+<!--<div id="alert" role="alert"></div>-->
+
+        <table id="DBshow" class="table table-striped">
+
+            <tr>
+                <td>Contact Number</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Phone Number</td>
+                <td>E-mail</td>
+                <td></td>
+            </tr>
+
+        </table>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+<script>
+    // change it to your firebase database
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDAG1oMVVISME6fY5DU64Zlm4YxzAiiA1U",
+        authDomain: "contactmanager-67ae6.firebaseapp.com",
+        databaseURL: "https://contactmanager-67ae6.firebaseio.com",
+        projectId: "contactmanager-67ae6",
+        storageBucket: "contactmanager-67ae6.appspot.com",
+        messagingSenderId: "911130887371"
+    };
+    firebase.initializeApp(config);
+</script>
+<script type="text/javascript" src="./script.js"></script>
+</body>
+</html>
