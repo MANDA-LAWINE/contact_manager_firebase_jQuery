@@ -9,7 +9,7 @@ function addContact(){
         lastName  = $("#lastName").val(),
         phoneNumber  = $("#phoneNumber").val(),
         email =$("#email").val(),
-        firebaseRef = firebase.database().ref().child('contacts'),
+        firebaseRef = firebase.database().ref('contacts'),
         table = $("#DBshow"),
         btnRm = "<button type='button' class='btn btn-danger' style='font-size: medium;min-width: 90px;min-height: 30px' onclick='remove(this)' >Remove</button>",
         btnMd ="<button type='button' class='btn btn-primary' style='font-size: medium;width: 90px;min-height: 30px' onclick='modify(this)' >Modify</button>",
@@ -131,7 +131,7 @@ function update() {
         k = 0;
         for(attr in contact){
             tds.eq(k+1).text(contact[attr]);++k;}
-        firebase.database().ref().child("contacts").child(tds.eq(0).text()).update(contact);
+        firebase.database().ref('contact').child(tds.eq(0).text()).update(contact);
         cancel();}
 }
 
@@ -148,7 +148,7 @@ function cancel() {
 }
 
 function  remove(item) {
-    var firebaseRef = firebase.database().ref().child('contacts'),
+    var firebaseRef = firebase.database().ref('contacts'),
         ligne = $(item.parentNode.parentNode)
     path = ligne.children().first().text();
     firebaseRef.child(path).remove();
