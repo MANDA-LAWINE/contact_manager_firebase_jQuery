@@ -94,8 +94,8 @@ function  modify(item) {
         phoneNumber = $("#phoneNumber"),
         email = $("#email"),
         btnWarp = $("#btn-warper"),
-        btnUpdate = "<button type='button' class='btn btn-primary' style='font-size: medium;width: 90px;min-height: 40px' onclick='update()' >Update</button>",
-        btnCancel = "<button type='button' class='btn btn-danger' style='font-size: medium;width: 90px;min-height: 40px;margin-left: 5px;' onclick='cancel(this)' >Cancel</button>";
+        btnUpdate = "<button type='button' class='btn btn-primary' style='font-size: medium;width: 90px;min-height: 40px;position:relative;left:53px;' onclick='update()' >Update</button>",
+        btnCancel = "<button type='button' class='btn btn-danger' style='font-size: medium;width: 90px;min-height: 40px;margin-left: 5px;position:relative;left:53px;' onclick='cancel(this)' >Cancel</button>";
 
     firstName.val(contact[1]);
     firstName.trigger("change");
@@ -131,7 +131,7 @@ function update() {
 function cancel() {
 
     var btnWarp = $("#btn-warper"),
-        btnAdd = "<button type='button' class='btn btn-primary' style='font-size: medium;width: 90px;height: 40px' onclick='addContact()' >Add</button>";
+        btnAdd = "<button type='button' class='btn btn-primary center-block' style='font-size: medium;width: 90px;height: 40px' onclick='addContact()' >Add</button>";
     $("#fm").find("input").each(function () {
         $(this).val("");
     });
